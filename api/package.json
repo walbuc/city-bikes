@@ -1,0 +1,30 @@
+{
+  "name": "city-bikes-api",
+  "version": "1.0.0",
+  "description": "city bikes api",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "author": "walter buczacka",
+  "license": "ISC",
+  "dependencies": {
+    "@socket.io/redis-adapter": "^7.0.0",
+    "axios": "^0.22.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "parse-fn-args": "^1.0.1",
+    "redis": "^3.1.2",
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6"
+  }
+}

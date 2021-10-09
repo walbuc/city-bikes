@@ -1,39 +1,21 @@
 version: "3"
 services:
-  redis:
-    image: "redis:latest"
-  nginx:
-    restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./nginx
-    ports:
-      - "3050:80"
-  api:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./api
-    volumes:
-      - /app/node_modules
-      - ./api:/app
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - BIKES_API_URL=http://api.citybik.es/v2/networks
-      - REQUEST_INTERVAL=5000
   client:
-    stdin_open: true
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
-    volumes:
-      - /app/node_modules
-      - ./client:/app
-  test:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
-    volumes:
-      - /app/node_modules
-      - ./client:/app
-    command: ["npm", "run", "test"]
+    image: "dewaltt/multi-client"
+    hostname: client
+    mem_limit: 128m
+  api:
+    image: "dewaltt/multi-server"
+    mem_limit: 128m
+    hostname: api
+    environment:
+      - REDIS_HOST=$REDIS_HOST
+      - REDIS_PORT=$REDIS_PORT
+      - BIKES_API_URL=$BIKES_API_URL
+      - REQUEST_INTERVAL=$REQUEST_INTERVAL
+  nginx:
+    image: "dewaltt/multi-nginx"
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"

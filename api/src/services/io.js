@@ -1,6 +1,5 @@
 module.exports = (io, bikesService) => {
   io.on("connection", (socket) => {
-    console.log(socket.id, "con socket");
     if (!bikesService.emitData.isRunning()) {
       bikesService.emitData.start();
     }

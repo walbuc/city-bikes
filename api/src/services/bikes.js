@@ -19,7 +19,6 @@ module.exports = function BikesSerivceFactory(name, bikesController, io) {
       return async () => {
         try {
           const res = await this.bikesController.getByName(name);
-          console.log(res, "con res AAAAAAA");
           io.emit("list bikes", res);
         } catch (error) {
           io.emit("list bikes error", error);

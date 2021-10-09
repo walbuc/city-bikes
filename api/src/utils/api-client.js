@@ -23,13 +23,9 @@ module.exports = function factoryClient() {
 
     return axios(config).then(
       async (response) => {
-        console.log("AXIOS");
-        console.log(response.data, "???? DATA @");
-
         return response.data;
       },
       (err) => {
-        console.log(err);
         return Promise.reject(err);
       }
     );

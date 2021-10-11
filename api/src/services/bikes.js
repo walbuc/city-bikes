@@ -35,7 +35,6 @@ module.exports = function BikesSerivceFactory(
       return async () => {
         try {
           const res = await this.bikesController.getByName(name);
-
           const currentDate = getCurrentDate();
 
           this.redisClient.lindex("dates", -1, (err, value) => {

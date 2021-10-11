@@ -1,15 +1,16 @@
 /** @jsxImportSource theme-ui */
 import {MapContainer, TileLayer} from 'react-leaflet'
 import {FullPageSpinner} from './Spinner'
-import {useBikes} from '../utils/hooks'
 import StationsList from './StationsList'
+import {useBikesContext} from '../context/BikesContext'
 
 BikesMaps.propTypes = {}
 
 function BikesMaps() {
   const {
+    isReplaying,
     bikes: {location, stations},
-  } = useBikes()
+  } = useBikesContext()
 
   return (
     <>

@@ -4,7 +4,9 @@
 
 ## Prod url
 
-[city bikes deploy, click me!](http://citybikes-env.eba-er8znpuk.us-east-1.elasticbeanstalk.com/)
+[City Bikes Deploy, Click Me!](http://citybikes-env.eba-er8znpuk.us-east-1.elasticbeanstalk.com/)
+
+## Summary
 
 This app has been deployed to AWS platform using AWS Elastic Beanstalk service.
 The projects has development and production workflow.

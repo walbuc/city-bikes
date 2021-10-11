@@ -17,6 +17,8 @@ const configureExpress = () => {
   });
   const subClient = pubClient.duplicate();
 
+  const historyClient = pubClient.duplicate();
+
   const app = express();
   const httpServer = createServer(app);
   const io = new Server(httpServer);
@@ -30,6 +32,7 @@ const configureExpress = () => {
   di.register("name", "decobike-miami-beach");
   di.register("app", app);
   di.register("io", io);
+  di.register("redisHistoryClient", historyClient);
 
   di.factory("bikesController", require("./controllers/bikes"));
   di.factory("client", require("./utils/api-client"));

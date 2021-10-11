@@ -1,9 +1,10 @@
 /** @jsxImportSource theme-ui */
 import Layout from '../components/Layout'
-import {Input, Button} from 'theme-ui'
+import {Input, Button, select} from 'theme-ui'
 import {ErrorBoundary} from 'react-error-boundary'
 import {Button as HomeBtn, ErrorMessage} from '../components/Error'
-import BikesList from '../components/BikesList'
+import BikesMap from '../components/BikesMap'
+import RePlay from '../components/RePlay'
 
 function ErrorFallback({error}) {
   return (
@@ -23,24 +24,21 @@ function ErrorFallback({error}) {
 const HomePage = () => (
   <Layout>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <h1>Welcome Home</h1>
+      <h1>Welcome to City Bikes</h1>
       <p
         sx={{
           color: 'primary',
           fontSize: [2, 2, 3],
           mt: 2,
+          mb: 4,
           pt: 2,
           borderTop: t => `1px solid ${t.colors.muted}`,
         }}
       >
-        This page show home page.
+        Live bikes stations status!
       </p>
-      <form>
-        <Input />
-        <Button sx={{bg: 'highlight'}}>This is a button</Button>
-        <HomeBtn sx={{bg: 'highlight'}}>This is a button</HomeBtn>
-      </form>
-      <BikesList />
+      <RePlay />
+      <BikesMap />
     </ErrorBoundary>
   </Layout>
 )

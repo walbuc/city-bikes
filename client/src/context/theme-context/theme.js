@@ -1,8 +1,6 @@
 import {Input} from './input'
 import {future} from '@theme-ui/presets'
 
-console.log(future)
-
 const Theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
@@ -55,7 +53,14 @@ const Theme = {
       fontWeight: 'bold',
       '&:hover': {cursor: 'pointer'},
     },
-    large: {},
+    disabled: {
+      fontWeight: 'bold',
+      bg: 'gray',
+      color: 'secondary',
+      ':hover': {
+        cursor: 'accent',
+      },
+    },
   },
   styles: {
     root: {

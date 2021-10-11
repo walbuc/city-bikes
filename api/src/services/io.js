@@ -20,7 +20,6 @@ module.exports = (io, bikesService, redisHistoryClient) => {
                   socket.emit("re play data", date, JSON.parse(data[i]));
                   if (datesRage.at(-1) === date) {
                     if (i === data.length - 1) {
-                      console.log("entro en stop");
                       socket.emit("re play stop", date, JSON.parse(data[i]));
                     }
                   }

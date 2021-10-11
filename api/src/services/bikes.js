@@ -44,7 +44,6 @@ module.exports = function BikesSerivceFactory(
                 currentDate,
                 function (err, reply) {
                   redisHistoryClient.lrange("dates", 0, -1, (err, dates) => {
-                    console.log(dates, "DATES");
                     io.emit("dates-re-play", dates);
                   });
                 }
@@ -55,9 +54,7 @@ module.exports = function BikesSerivceFactory(
           this.redisClient.rpush(
             currentDate,
             JSON.stringify(res),
-            function (err, reply) {
-              console.log(reply);
-            }
+            function (err, reply) {}
           );
 
           this.io.emit("list bikes", res);

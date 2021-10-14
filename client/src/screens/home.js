@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Layout from '../components/Layout'
-import {Input, Button, select} from 'theme-ui'
 import {ErrorBoundary} from 'react-error-boundary'
-import {Button as HomeBtn, ErrorMessage} from '../components/Error'
+import {ErrorMessage} from '../components/Error'
 import BikesMap from '../components/BikesMap'
 import RePlay from '../components/RePlay'
 

@@ -53,4 +53,4 @@ The configuration is read drom docker-compose.yml.
 - In development we have the exact same infrastructure than aws production set up. We use nginx and redis images.
   This way we reduce the differences between environments and as a result the number of bugs.
 
-- Becasue we are using ENV vars for config settings, in production the requests are made every 5 seconds while in developmen each 10 seconds.
+- Because we are using ENV vars for config settings, in production the requests are made every 5 seconds while in developmen each 10 seconds.
